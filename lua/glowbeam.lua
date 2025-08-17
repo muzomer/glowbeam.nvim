@@ -77,49 +77,49 @@ local highlights = {
     EndOfBuffer = { fg = base4 },            -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   = {}, -- cursor in a focused terminal
     -- TermCursorNC = {}, -- cursor in an unfocused terminal
-    VertSplit = { fg = base4 },                                     -- the column separating vertically split windows
-    Folded = { fg = fold },                                         -- line used for closed folds
-    FoldColumn = { fg = fold },                                     -- 'foldcolumn'
-    SignColumn = { bg = black },                                    -- column where |signs| are displayed
-    IncSearch = { bg = "#3B3702", gui = "underline", sp = yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    VertSplit = { fg = base4 },                         -- the column separating vertically split windows
+    Folded = { fg = fold },                             -- line used for closed folds
+    FoldColumn = { fg = fold },                         -- 'foldcolumn'
+    SignColumn = { bg = black },                        -- column where |signs| are displayed
+    IncSearch = { bg = "#3B3702", sp = yellow },        -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     -- Substitute   = {}, -- |:substitute| replacement text highlighting
-    LineNr = { fg = base4 },                                        -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr = { fg = accent },                                 -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { fg = accent },                                   -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    NormalFloat = { link = "Normal" },                              -- Normal text in floating windows.
-    NormalNC = { link = "Normal" },                                 -- normal text in non-current windows
-    Pmenu = { bg = base1 },                                         -- Popup menu: normal item.
-    PmenuSel = { fg = base1, bg = accent },                         -- Popup menu: selected item.
-    PmenuSbar = { bg = base4 },                                     -- Popup menu: scrollbar.
-    PmenuThumb = { bg = base6 },                                    -- Popup menu: Thumb of the scrollbar.
-    Question = { fg = green },                                      -- |hit-enter| prompt and yes/no questions
-    Search = { bg = "#3B3702" },                                    -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    SpecialKey = { fg = base5, gui = "bold" },                      -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellBad = { gui = "undercurl", sp = red },                     -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    SpellCap = { gui = "undercurl", sp = yellow },                  -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    SpellRare = { gui = "undercurl", sp = magenta },                -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    StatusLine = { fg = base8 },                                    -- status line of current window
-    StatusLineNC = { link = "StatusLine", fg = base6 },             -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine = { fg = base7, bg = base3 },                           -- tab pages line, not active tab page label
-    TabLineFill = { bg = base1 },                                   -- tab pages line, where there are no labels
-    TabLineSel = { fg = accent },                                   -- tab pages line, active tab page label
-    Title = { fg = yellow, gui = "bold" },                          -- titles for output from ":set all", ":autocmd" etc.
-    Visual = { bg = "#252A31" },                                    -- Visual mode selection
-    VisualNOS = { link = "Visual", fg = red },                      -- Visual mode selection when vim is "Not Owning the Selection".
-    CursorLine = { link = "Visual" },                               -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorColumn = { link = "CursorLine" },                         -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    QuickFixLine = { link = "Visual" },                             -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Whitespace = { fg = base3 },                                    -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    NonText = { fg = base6 },                                       -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    LineNr = { fg = base4 },                            -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr = { fg = accent },                     -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    MatchParen = { fg = accent },                       -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    NormalFloat = { link = "Normal" },                  -- Normal text in floating windows.
+    NormalNC = { link = "Normal" },                     -- normal text in non-current windows
+    Pmenu = { bg = base1 },                             -- Popup menu: normal item.
+    PmenuSel = { fg = base1, bg = accent },             -- Popup menu: selected item.
+    PmenuSbar = { bg = base4 },                         -- Popup menu: scrollbar.
+    PmenuThumb = { bg = base6 },                        -- Popup menu: Thumb of the scrollbar.
+    Question = { fg = green },                          -- |hit-enter| prompt and yes/no questions
+    Search = { bg = "#3B3702" },                        -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    SpecialKey = { fg = base5, gui = "bold" },          -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellBad = { gui = "undercurl", sp = red },         -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellCap = { gui = "undercurl", sp = yellow },      -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellRare = { gui = "undercurl", sp = magenta },    -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    StatusLine = { fg = base8 },                        -- status line of current window
+    StatusLineNC = { link = "StatusLine", fg = base6 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine = { fg = base7, bg = base3 },               -- tab pages line, not active tab page label
+    TabLineFill = { bg = base1 },                       -- tab pages line, where there are no labels
+    TabLineSel = { fg = accent },                       -- tab pages line, active tab page label
+    Title = { fg = yellow, gui = "bold" },              -- titles for output from ":set all", ":autocmd" etc.
+    Visual = { bg = "#252A31" },                        -- Visual mode selection
+    VisualNOS = { link = "Visual", fg = red },          -- Visual mode selection when vim is "Not Owning the Selection".
+    CursorLine = { link = "Visual" },                   -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorColumn = { link = "CursorLine" },             -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    QuickFixLine = { link = "Visual" },                 -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    Whitespace = { fg = base3 },                        -- "nbsp", "space", "tab" and "trail" in 'listchars'
+    NonText = { fg = base6 },                           -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     -- WildMenu     = {}, -- current match in 'wildmenu' completion
-    MoreMsg = { fg = green },                                       -- |more-prompt|
-    ModeMsg = { link = "Normal" },                                  -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea = { link = "Normal" },                                  -- Area for messages and cmdline
-    MsgSeparator = { link = "Normal" },                             -- Separator for scrolled messages, `msgsep` flag of 'display'
-    DiffAdd = { bg = git.add },                                     -- diff mode: Added line |diff.txt|
-    DiffChange = { bg = git.change },                               -- diff mode: Changed line |diff.txt|
-    DiffDelete = { bg = git.delete },                               -- diff mode: Deleted line |diff.txt|
-    DiffText = { bg = git.text, gui = "underline" },                -- diff mode: Changed text within a changed line |diff.txt|
+    MoreMsg = { fg = green },                           -- |more-prompt|
+    ModeMsg = { link = "Normal" },                      -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea = { link = "Normal" },                      -- Area for messages and cmdline
+    MsgSeparator = { link = "Normal" },                 -- Separator for scrolled messages, `msgsep` flag of 'display'
+    DiffAdd = { bg = git.add },                         -- diff mode: Added line |diff.txt|
+    DiffChange = { bg = git.change },                   -- diff mode: Changed line |diff.txt|
+    DiffDelete = { bg = git.delete },                   -- diff mode: Deleted line |diff.txt|
+    DiffText = { bg = git.text, gui = "underline" },    -- diff mode: Changed text within a changed line |diff.txt|
     GitGutterAdd = { fg = green },
     GitGutterChange = { fg = yellow },
     GitGutterDelete = { fg = red },
@@ -276,9 +276,9 @@ local highlights = {
     NvimTreeSpecialFile = { gui = "bold" },
     NvimTreeFolderIcon = { fg = base6 },
     NvimTreeIndentMarker = { fg = base4 },
-    QuickScopeCursor = { gui = "underline bold", sp = special.green },
-    QuickScopePrimary = { gui = "underline bold", sp = special.yellow },
-    QuickScopeSecondary = { gui = "underline bold", sp = special.red },
+    QuickScopeCursor = { gui = "bold", sp = special.green },
+    QuickScopePrimary = { gui = "bold", sp = special.yellow },
+    QuickScopeSecondary = { gui = "bold", sp = special.red },
     IndentGuidesOdd = { bg = "#181A1F" },
     IndentGuidesEven = { bg = "#1E2127" },
 }
