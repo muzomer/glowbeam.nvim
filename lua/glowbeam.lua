@@ -283,6 +283,20 @@ local highlights = {
     IndentGuidesEven = { bg = "#1E2127" },
 }
 
-return highlights
+local M = {}
 
+function M.colorscheme()
+    vim.cmd("highlight clear")
+    vim.cmd("syntax reset")
+    vim.o.termguicolors = true
+    vim.o.background = "dark"
+    vim.g.colors_name = "glowbeam"
+    for group, colors in pairs(highlights) do
+        vim.api.nvim_set_hl(0, group, colors)
+    end
+end
+
+M.colorscheme()
+
+return M
 -- vim: foldmethod=marker foldlevel=0
