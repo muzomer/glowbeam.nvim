@@ -64,17 +64,17 @@ local diag = {
 -- }}}
 
 local highlights = {
-    Normal = { fg = white, bg = black },     -- normal text
-    Comment = { fg = base6, gui = "italic" },
-    ColorColumn = { bg = base1 },            -- used for the columns set with 'colorcolumn'
-    Conceal = { bg = base4 },                -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor = { bg = special.green },         -- character under the cursor
-    lCursor = { link = "Cursor" },           -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM = { bg = special.blue },        -- like Cursor, but used when in IME mode |CursorIM|
-    CursorRM = { bg = special.red },         -- like Cursor, but used when in RME mode
-    CursorVM = { bg = special.yellow },      -- like Cursor, but used when in RME mode
-    Directory = { fg = blue, gui = "bold" }, -- directory names (and other special names in listings)
-    EndOfBuffer = { fg = base4 },            -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    Normal = { fg = white, bg = black },    -- normal text
+    Comment = { fg = base6, italic = true },
+    ColorColumn = { bg = base1 },           -- used for the columns set with 'colorcolumn'
+    Conceal = { bg = base4 },               -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor = { bg = special.green },        -- character under the cursor
+    lCursor = { link = "Cursor" },          -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM = { bg = special.blue },       -- like Cursor, but used when in IME mode |CursorIM|
+    CursorRM = { bg = special.red },        -- like Cursor, but used when in RME mode
+    CursorVM = { bg = special.yellow },     -- like Cursor, but used when in RME mode
+    Directory = { fg = blue, bold = true }, -- directory names (and other special names in listings)
+    EndOfBuffer = { fg = base4 },           -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   = {}, -- cursor in a focused terminal
     -- TermCursorNC = {}, -- cursor in an unfocused terminal
     VertSplit = { fg = base4 },                         -- the column separating vertically split windows
@@ -94,16 +94,16 @@ local highlights = {
     PmenuThumb = { bg = base6 },                        -- Popup menu: Thumb of the scrollbar.
     Question = { fg = green },                          -- |hit-enter| prompt and yes/no questions
     Search = { bg = "#3B3702" },                        -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    SpecialKey = { fg = base5, gui = "bold" },          -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellBad = { gui = "undercurl", sp = red },         -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    SpellCap = { gui = "undercurl", sp = yellow },      -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    SpellRare = { gui = "undercurl", sp = magenta },    -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpecialKey = { fg = base5, bold = true },           -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellBad = { undercurl = true, sp = red },          -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellCap = { undercurl = true, sp = yellow },       -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
+    SpellRare = { undercurl = true, sp = magenta },     -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine = { fg = base8 },                        -- status line of current window
     StatusLineNC = { link = "StatusLine", fg = base6 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     TabLine = { fg = base7, bg = base3 },               -- tab pages line, not active tab page label
     TabLineFill = { bg = base1 },                       -- tab pages line, where there are no labels
     TabLineSel = { fg = accent },                       -- tab pages line, active tab page label
-    Title = { fg = yellow, gui = "bold" },              -- titles for output from ":set all", ":autocmd" etc.
+    Title = { fg = yellow, bold = true },               -- titles for output from ":set all", ":autocmd" etc.
     Visual = { bg = "#252A31" },                        -- Visual mode selection
     VisualNOS = { link = "Visual", fg = red },          -- Visual mode selection when vim is "Not Owning the Selection".
     CursorLine = { link = "Visual" },                   -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
@@ -119,7 +119,7 @@ local highlights = {
     DiffAdd = { bg = git.add },                         -- diff mode: Added line |diff.txt|
     DiffChange = { bg = git.change },                   -- diff mode: Changed line |diff.txt|
     DiffDelete = { bg = git.delete },                   -- diff mode: Deleted line |diff.txt|
-    DiffText = { bg = git.text, gui = "underline" },    -- diff mode: Changed text within a changed line |diff.txt|
+    DiffText = { bg = git.text, underline = true },     -- diff mode: Changed text within a changed line |diff.txt|
     GitGutterAdd = { fg = green },
     GitGutterChange = { fg = yellow },
     GitGutterDelete = { fg = red },
@@ -129,38 +129,38 @@ local highlights = {
     -- commented out groups should chain up to their "preferred" group by
     -- default,
     -- Uncomment and edit if you want more specific syntax highlighting.
-    Constant = { fg = green },                            -- (preferred) any constant
-    String = { fg = green },                              --   a string constant: "this is a string"
-    Number = { fg = orange },                             --   a number constant: 234, 0xff
-    Float = { link = "Number" },                          --    a floating point constant: 2.3e10
-    Character = { fg = pink },                            --  a character constant: 'c', ' '
-    Boolean = { fg = pink },                              --  a boolean constant: TRUE, false
-    Identifier = { link = "Normal" },                     -- (preferred) any variable name
-    Function = { fg = blue },                             -- function name (also: methods for classes)
-    Statement = { fg = blue },                            -- (preferred) any statement
-    Conditional = { link = "Statement", gui = "italic" }, --  if, then, else, endif, switch, etc.
-    Repeat = { link = "Conditional" },                    --   for, do, while, etc.
-    Label = { link = "Conditional" },                     --    case, default, etc.
-    Operator = { fg = blue },                             -- "sizeof", "+", "*", etc.
-    Keyword = { fg = magenta, gui = "italic" },           --  any other keyword
-    Exception = { fg = red, gui = "italic" },             --  try, catch, throw
-    PreProc = { fg = magenta },                           -- (preferred) generic Preprocessor
-    Include = { fg = red, gui = "italic" },               --  preprocessor #include
-    Define = { fg = magenta },                            --   preprocessor #define
-    Macro = { fg = teal, gui = "italic" },                --    same as Define
-    PreCondit = { fg = magenta, gui = "bold" },           --  preprocessor #if, #else, #endif, etc.
-    Type = { fg = yellow },                               -- (preferred) int, long, char, etc.
-    StorageClass = { fg = blue },                         -- static, register, volatile, etc.
-    Structure = { fg = blue },                            --  struct, union, enum, etc.
-    Typedef = { fg = yellow },                            --  A typedef
-    Special = { fg = orange },                            -- (preferred) any special symbol
-    SpecialChar = { fg = yellow, gui = "bold" },          --  special character in a constant
-    Tag = { fg = pink, gui = "underline" },               --    you can use CTRL-] on this
-    Delimiter = { link = "Normal" },                      --  character that needs attention
-    SpecialComment = { fg = magenta, gui = "italic" },    -- special things inside a comment
-    Underlined = { gui = "underline" },                   -- (preferred) text that stands out, HTML links
-    Bold = { gui = "bold" },
-    Italic = { gui = "italic" },
+    Constant = { fg = green },                           -- (preferred) any constant
+    String = { fg = green },                             --   a string constant: "this is a string"
+    Number = { fg = orange },                            --   a number constant: 234, 0xff
+    Float = { link = "Number" },                         --    a floating point constant: 2.3e10
+    Character = { fg = pink },                           --  a character constant: 'c', ' '
+    Boolean = { fg = pink },                             --  a boolean constant: TRUE, false
+    Identifier = { link = "Normal" },                    -- (preferred) any variable name
+    Function = { fg = blue },                            -- function name (also: methods for classes)
+    Statement = { fg = blue },                           -- (preferred) any statement
+    Conditional = { link = "Statement", italic = true }, --  if, then, else, endif, switch, etc.
+    Repeat = { link = "Conditional" },                   --   for, do, while, etc.
+    Label = { link = "Conditional" },                    --    case, default, etc.
+    Operator = { fg = blue },                            -- "sizeof", "+", "*", etc.
+    Keyword = { fg = magenta, italic = true },           --  any other keyword
+    Exception = { fg = red, italic = true },             --  try, catch, throw
+    PreProc = { fg = magenta },                          -- (preferred) generic Preprocessor
+    Include = { fg = red, italic = true },               --  preprocessor #include
+    Define = { fg = magenta },                           --   preprocessor #define
+    Macro = { fg = teal, italic = true },                --    same as Define
+    PreCondit = { fg = magenta, bold = true },           --  preprocessor #if, #else, #endif, etc.
+    Type = { fg = yellow },                              -- (preferred) int, long, char, etc.
+    StorageClass = { fg = blue },                        -- static, register, volatile, etc.
+    Structure = { fg = blue },                           --  struct, union, enum, etc.
+    Typedef = { fg = yellow },                           --  A typedef
+    Special = { fg = orange },                           -- (preferred) any special symbol
+    SpecialChar = { fg = yellow, bold = true },          --  special character in a constant
+    Tag = { fg = pink, underline = true },               --    you can use CTRL-] on this
+    Delimiter = { link = "Normal" },                     --  character that needs attention
+    SpecialComment = { fg = magenta, italic = true },    -- special things inside a comment
+    Underlined = { underline = true },                   -- (preferred) text that stands out, HTML links
+    Bold = { bold = true },
+    Italic = { italic = true },
     -- ("Ignore", below, may be invisible...)
     -- Ignore         = {}, -- (preferred) left blank, hidden  |hl-Ignore|
     Error = { fg = diag.error },     -- (preferred) any erroneous construct
@@ -169,14 +169,14 @@ local highlights = {
     Hint = { fg = diag.hint },       -- (preferred) any hint construct
     Success = { fg = diag.success }, -- (preferred) any successful construct
     Ignore = { fg = base9 },
-    Muted = { fg = base7, gui = "italic" },
-    Debug = { fg = green, gui = "italic" },    --    debugging statements
-    ErrorMsg = { link = "Error" },             -- error messages on the command line
-    WarningMsg = { link = "Warning" },         -- warning messages
-    InfoMsg = { link = "Info" },               -- info messages
-    HintMsg = { link = "Hint" },               -- hint messages
-    SuccessMsg = { link = "Success" },         -- success messages
-    Todo = { fg = yellow, gui = "underline" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Muted = { fg = base7, italic = true },
+    Debug = { fg = green, italic = true },    --    debugging statements
+    ErrorMsg = { link = "Error" },            -- error messages on the command line
+    WarningMsg = { link = "Warning" },        -- warning messages
+    InfoMsg = { link = "Info" },              -- info messages
+    HintMsg = { link = "Hint" },              -- hint messages
+    SuccessMsg = { link = "Success" },        -- success messages
+    Todo = { fg = yellow, underline = true }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     -- These groups are for the native LSP client. Some other LSP clients may use
     -- these groups, or use their own. Consult your LSP client's documentation.
     LspDiagnosticsDefaultError = { link = "Error" },      -- used for "Error" diagnostic text
@@ -191,12 +191,12 @@ local highlights = {
     LspDiagnosticsUnderlineInfo = { link = "Underlined", sp = diag.info },
     LspDiagnosticsUnderlineWarning = { link = "Underlined", sp = diag.warning },
     LspDiagnosticsUnderlineHint = { link = "Underlined", sp = diag.hint },
-    markdownH1 = { fg = red, gui = "bold" },
-    markdownH2 = { fg = orange, gui = "bold" },
-    markdownH3 = { fg = yellow, gui = "bold" },
-    markdownH4 = { fg = green, gui = "bold" },
-    markdownH5 = { fg = blue, gui = "bold" },
-    markdownH6 = { fg = magenta, gui = "bold" },
+    markdownH1 = { fg = red, bold = true },
+    markdownH2 = { fg = orange, bold = true },
+    markdownH3 = { fg = yellow, bold = true },
+    markdownH4 = { fg = green, bold = true },
+    markdownH5 = { fg = blue, bold = true },
+    markdownH6 = { fg = magenta, bold = true },
     htmlH1 = { link = "markdownH1" },
     htmlH2 = { link = "markdownH2" },
     htmlH3 = { link = "markdownH3" },
@@ -226,7 +226,7 @@ local highlights = {
     -- TSFunction           = {}, -- For function (calls and definitions).
     -- TSFuncBuiltin        = {}, -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro          = {}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSParameter = { fg = teal, gui = "italic" }, -- For parameters of a function.
+    TSParameter = { fg = teal, italic = true }, -- For parameters of a function.
     -- TSParameterReference = {}, -- For references to parameters of a function.
     -- TSMethod             = {}, -- For method calls and definitions.
     -- TSField              = {}, -- For fields.
@@ -250,7 +250,7 @@ local highlights = {
     -- TSUnderline          = {}, -- For text to be represented with an underline.
     -- TSTitle              = {}, -- Text that is part of a title.
     -- TSLiteral            = {}, -- Literal text.
-    TSURI = { gui = "underline italic", sp = blue }, -- Any URI like a link or email.
+    TSURI = { underline = true, italic = true, sp = blue }, -- Any URI like a link or email.
     -- TSVariable           = {}, -- Any variable name that does not have another highlight.
     -- TSVariableBuiltin    = {}, -- Variable names that are defined by the languages, like `this` or `self`.
     TSTag = { fg = red },
@@ -273,12 +273,12 @@ local highlights = {
     NvimTreeGitMerge = { fg = magenta },
     NvimTreeGitRenamed = { fg = orange },
     NvimTreeGitNew = { fg = red },
-    NvimTreeSpecialFile = { gui = "bold" },
+    NvimTreeSpecialFile = { bold = true },
     NvimTreeFolderIcon = { fg = base6 },
     NvimTreeIndentMarker = { fg = base4 },
-    QuickScopeCursor = { gui = "bold", sp = special.green },
-    QuickScopePrimary = { gui = "bold", sp = special.yellow },
-    QuickScopeSecondary = { gui = "bold", sp = special.red },
+    QuickScopeCursor = { bold = true, sp = special.green },
+    QuickScopePrimary = { bold = true, sp = special.yellow },
+    QuickScopeSecondary = { bold = true, sp = special.red },
     IndentGuidesOdd = { bg = "#181A1F" },
     IndentGuidesEven = { bg = "#1E2127" },
 }
