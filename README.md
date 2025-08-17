@@ -6,7 +6,7 @@ Kudos to https://github.com/cooperuser for the great choice of colors.
 
 ## Why a fork?
 
-There are no updates in the original repository since long time. As the selection of colors are great to me, I thought better to fork it and apply the modifications I wish to add, and maintain it for my personal use.
+There are no updates in the original repository since long time. As the selection of colors look great to me, I thought better to fork it, port it completely to lua and apply other modifications.
 
 ## Screenshots
 
