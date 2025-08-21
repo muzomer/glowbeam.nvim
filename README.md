@@ -10,4 +10,5 @@ There are no updates in the original repository since long time. As the selectio
 
 ## Screenshots
 
-<img width="1680" height="1025" alt="glowbeam" src="https://github.com/user-attachments/assets/09e6ae03-bf5b-46ce-a2f3-9c5483c2db57" />
+<img width="1920" height="1180" alt="image" src="https://github.com/user-attachments/assets/91d9d897-5064-4fc9-ac7d-afac15bd0c46" />
+
