@@ -1,1 +1,1 @@
-require("glowbeam")
+require("glowbeam").setup()
