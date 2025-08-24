@@ -237,7 +237,7 @@ M.highlights = {
     Typedef                          = { fg = yellow },                       --  A typedef
     Special                          = { fg = orange },                       -- (preferred) any special symbol
     SpecialChar                      = { fg = yellow, bold = true },          --  special character in a constant
-    Tag                              = { fg = pink, underline = true },       --    you can use CTRL-] on this
+    Tag                              = { fg = pink },       --    you can use CTRL-] on this
     Delimiter                        = { link = "Normal" },                   --  character that needs attention
     SpecialComment                   = { fg = magenta, italic = true },       -- special things inside a comment
     Underlined                       = { underline = true },                  -- (preferred) text that stands out, HTML links
@@ -292,50 +292,51 @@ M.highlights = {
     -- you explicitly want to support Treesitter's improved syntax awareness.
     -- Treesitter
     TSError                          = { link = "Error" }, -- For syntax/parser errors.
-    -- TSPunctDelimiter     = {}, -- For delimiters ie: `.`
-    -- TSPunctBracket       = {}, -- For brackets and parens.
-    -- TSPunctSpecial       = {}, -- For special punctutation that does not fall in the catagories before.
-    -- TSConstant           = {}, -- For constants
-    -- TSConstBuiltin       = {}, -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro         = {}, -- For constants that are defined by macros: `NULL` in C.
-    -- TSString             = {}, -- For strings.
-    -- TSStringRegex        = {}, -- For regexes.
-    -- TSStringEscape       = {}, -- For escape characters within a string.
-    -- TSCharacter          = {}, -- For characters.
-    -- TSNumber             = {}, -- For integers.
-    -- TSBoolean            = {}, -- For booleans.
-    -- TSFloat              = {}, -- For floats.
-    -- TSFunction           = {}, -- For function (calls and definitions).
-    -- TSFuncBuiltin        = {}, -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro          = {}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    TSParameter                      = { fg = teal, italic = true }, -- For parameters of a function.
-    -- TSParameterReference = {}, -- For references to parameters of a function.
-    -- TSMethod             = {}, -- For method calls and definitions.
-    -- TSField              = {}, -- For fields.
-    -- TSProperty           = {}, -- Same as `TSField`.
-    -- TSConstructor        = {}, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
-    -- TSConditional        = {}, -- For keywords related to conditionnals.
-    -- TSRepeat             = {}, -- For keywords related to loops.
-    -- TSLabel              = {}, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSOperator           = {}, -- For any operator: `+`, but also `->` and `*` in C.
-    -- TSKeyword            = {}, -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    = {}, -- For keywords used to define a fuction.
-    -- TSException          = {}, -- For exception related keywords.
-    -- TSType               = {}, -- For types.
-    -- TSTypeBuiltin        = {}, -- For builtin types (you guessed it, right ?).
-    -- TSNamespace          = {}, -- For identifiers referring to modules and namespaces.
-    -- TSInclude            = {}, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSAnnotation         = {}, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSText               = {}, -- For strings considered text in a markup language.
-    -- TSStrong             = {}, -- For text to be represented with strong.
-    -- TSEmphasis           = {}, -- For text to be represented with emphasis.
-    -- TSUnderline          = {}, -- For text to be represented with an underline.
-    -- TSTitle              = {}, -- Text that is part of a title.
-    -- TSLiteral            = {}, -- Literal text.
-    TSURI                            = { underline = true, italic = true, sp = blue }, -- Any URI like a link or email.
-    -- TSVariable           = {}, -- Any variable name that does not have another highlight.
-    -- TSVariableBuiltin    = {}, -- Variable names that are defined by the languages, like `this` or `self`.
-    TSTag                            = { fg = red },
+    TSPunctDelimiter                 = { link = "Delimiter" }, -- For delimiters ie: `.`
+    TSPunctBracket                   = { link = "Delimiter" }, -- For brackets and parens.
+    TSPunctSpecial                   = { link = "Delimiter" }, -- For special punctutation that does not fall in the catagories before.
+    TSConstant                       = { link = "Constant" }, -- For constants
+    TSConstBuiltin                   = { link = "TSConstant", bold = true }, -- For constant that are built in the language: `nil` in Lua.
+    TSConstMacro                     = { link = "TSConstant", bold = true }, -- For constants that are defined by macros: `NULL` in C.
+    TSString                         = { link = "String" }, -- For strings.
+    TSStringRegex                    = { fg = colors.syntax.regexp }, -- For regexes.
+    TSStringEscape                   = { fg = colors.syntax.special, bold = true }, -- For escape characters within a string.
+    TSCharacter                      = { fg = colors.syntax.string, bold = true }, -- For characters.
+    TSNumber                         = { link = "Number" }, -- For integers.
+    TSBoolean                        = { link = "Number" }, -- For booleans.
+    TSFloat                          = { link = "Number" }, -- For floats.
+    TSFunction                       = { link = "Function" }, -- For function (calls and definitions).
+    TSFuncBuiltin                    = { link = "TSFunction", bold = true }, -- For builtin functions: `table.insert` in Lua.
+    TSFuncMacro                      = { link = "TSFunction", bold = true }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    TSParameter                      = { link = "Identifier" }, -- For parameters of a function.
+    TSParameterReference             = { link = "TSParameter", bold = true }, -- For references to parameters of a function.
+    TSMethod                         = { link = "TSFunction" }, -- For method calls and definitions.
+    TSField                          = { link = "TSProperty" }, -- For fields.
+    TSProperty                       = { link = "TSFunction" }, -- Same as `TSField`.
+    TSConstructor                    = { link = "TSFunction", bold = true }, -- For constructor calls and definitions: `{}` in Lua, and Java constructors.
+    TSConditional                    = { link = "TSKeyword" }, -- For keywords related to conditionnals.
+    TSRepeat                         = { link = "TSKeyword" }, -- For keywords related to loops.
+    TSLabel                          = { link = "TSKeyword" }, -- For labels: `label:` in C and `:label:` in Lua.
+    TSKeyword                        = { link = "Statement" }, -- For keywords that don't fall in previous categories.
+    TSKeywordFunction                = { link = "TSKeyword", bold = true }, -- For keywords used to define a fuction.
+    TSKeywordOperator                = { link = "TSKeyword" },
+    TSOperator                       = { link = "TSKeyword" }, -- For any operator: `+`, but also `->` and `*` in C.
+    TSException                      = { link = "TSKeyword" }, -- For exception related keywords.
+    TSType                           = { link = "Type" }, -- For types.
+    TSTypeBuiltin                    = { link = "TSType", bold = true }, -- For builtin types (you guessed it, right ?).
+    TSNamespace                      = { link = "TSKeyword" }, -- For identifiers referring to modules and namespaces.
+    TSInclude                        = { link = "TSKeyword" }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSAnnotation                     = { link = "TSKeyword" }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    TSText                           = { link = "Normal" }, -- For strings considered text in a markup language.
+    TSStrong                         = { link = "Bold" }, -- For text to be represented with strong.
+    TSEmphasis                       = { link = "Italic" }, -- For text to be represented with emphasis.
+    TSUnderline                      = { link = "Underlined" }, -- For text to be represented with an underline.
+    TSTitle                          = { link = "Title" }, -- Text that is part of a title.
+    TSLiteral                        = { link = "String" }, -- Literal text.
+    TSURI                            = { link = "Underlined", fg = blue }, -- Any URI like a link or email.
+    TSVariable                       = { link = "Identifier" }, -- Any variable name that does not have another highlight.
+    TSVariableBuiltin                = { link = "TSVariable", bold = true }, -- Variable names that are defined by the languages, like `this` or `self`.
+    TSTag                            = { link = "TSKeyword" },
     TabLineSeparator                 = { fg = black, bg = base1 },
     TabLineError                     = { link = "Error" },
     TabLineWarning                   = { link = "Warning" },
