@@ -30,11 +30,6 @@ local special = {
 	blue = "#87afff",
 }
 
--- DiffAdd = { bg = "#244032", fg = "#56d364" },
--- DiffDelete = { bg = "#462c32", fg = "#f85149" },
--- DiffText = { fg = "#341a00", bg = "#fff987" },
--- DiffChange = { bg = "#341a00", fg = "#e3b341" },
-
 local git = {
 	add = { bg = "#244032", fg = "#56d364" },
 	change = { bg = "#341a00", fg = "#e3b341" },
@@ -205,10 +200,12 @@ M.highlights = {
 	DiffChange = { bg = git.change.bg, fg = git.change.fg }, -- diff mode: Changed line |diff.txt|
 	DiffDelete = { bg = git.delete.bg, fg = git.delete.fg }, -- diff mode: Deleted line |diff.txt|
 	DiffText = { bg = git.text.bg, fg = git.text.fg }, -- diff mode: Changed text within a changed line |diff.txt|
+
 	GitGutterAdd = { fg = green },
 	GitGutterChange = { fg = yellow },
 	GitGutterDelete = { fg = red },
 	GitGutterChangeDelete = { fg = orange },
+
 	-- These groups are not listed as default vim groups,
 	-- but they are defacto standard group names for syntax highlighting.
 	-- commented out groups should chain up to their "preferred" group by
@@ -340,39 +337,13 @@ M.highlights = {
 	TSVariable = { link = "Identifier" }, -- Any variable name that does not have another highlight.
 	TSVariableBuiltin = { link = "TSVariable", bold = true }, -- Variable names that are defined by the languages, like `this` or `self`.
 	TSTag = { link = "TSKeyword" },
+
 	TabLineSeparator = { fg = black, bg = base1 },
 	TabLineError = { link = "Error" },
 	TabLineWarning = { link = "Warning" },
 	TabLineInfo = { link = "Info" },
 	TabLineHint = { link = "Hint" },
 	TabLineSuccess = { link = "Success" },
-
-	TelescopeNormal = { link = "Normal" },
-	TelescopeBorder = { link = "FloatBorder" },
-	TelescopePromptNormal = { link = "Normal" },
-	TelescopePromptBorder = { link = "TelescopeBorder" },
-	TelescopePromptTitle = { link = "TelescopePromptNormal", bold = true },
-	TelescopePromptPrefix = { fg = magenta },
-	TelescopeResultsNormal = { link = "Normal" },
-	TelescopeResultsBorder = { link = "TelescopeBorder" },
-	TelescopeResultsTitle = { link = "TelescopeResultsNormal", bold = true },
-	TelescopePreviewNormal = { link = "Normal" },
-	TelescopePreviewBorder = { link = "TelescopeBorder" },
-	TelescopePreviewTitle = { link = "TelescopePreviewNormal", bold = true },
-	TelescopeSelection = { link = "Visual" },
-	TelescopeSelectionCaret = { link = "TelescopeSelection", fg = magenta },
-	TelescopeMatching = { fg = orange, bold = true },
-
-	LspSagaNormal = { link = "Normal" },
-	LspSagaBorder = { link = "FloatBorder" },
-	LspSagaFinder = { link = "Telescope" },
-	LspSagaCodeAction = { link = "Telescope" },
-	LspSagaRename = { link = "Telescope" },
-	LspSagaDefintion = { link = "Telescope" },
-	LspSagaHover = { link = "Telescope" },
-	LspSagaSignatureHelp = { link = "Telescope" },
-	LspSagaDiagnostic = { link = "Telescope" },
-	LspSagaLightBulb = { fg = yellow },
 
 	WhichKey = { fg = magenta },
 	WhichKeySeperator = { fg = green },
@@ -507,38 +478,6 @@ M.highlights = {
 	QuickScopePrimary = { bold = true, sp = special.yellow },
 	QuickScopeSecondary = { bold = true, sp = special.red },
 
-	CmpItemAbbr = { fg = white },
-	CmpItemAbbrDeprecated = { fg = base6, strikethrough = true },
-	CmpItemAbbrMatch = { fg = blue, bold = true },
-	CmpItemAbbrMatchFuzzy = { fg = blue, bold = true },
-	CmpItemKind = { fg = violet },
-	CmpItemMenu = { fg = base6 },
-	CmpItemKindText = { link = "CmpItemKind" },
-	CmpItemKindMethod = { link = "CmpItemKind" },
-	CmpItemKindFunction = { link = "CmpItemKind" },
-	CmpItemKindConstructor = { link = "CmpItemKind" },
-	CmpItemKindField = { link = "CmpItemKind" },
-	CmpItemKindVariable = { link = "CmpItemKind" },
-	CmpItemKindClass = { link = "CmpItemKind" },
-	CmpItemKindInterface = { link = "CmpItemKind" },
-	CmpItemKindModule = { link = "CmpItemKind" },
-	CmpItemKindProperty = { link = "CmpItemKind" },
-	CmpItemKindUnit = { link = "CmpItemKind" },
-	CmpItemKindValue = { link = "CmpItemKind" },
-	CmpItemKindEnum = { link = "CmpItemKind" },
-	CmpItemKindKeyword = { link = "CmpItemKind" },
-	CmpItemKindSnippet = { link = "CmpItemKind" },
-	CmpItemKindColor = { link = "CmpItemKind" },
-	CmpItemKindFile = { link = "CmpItemKind" },
-	CmpItemKindReference = { link = "CmpItemKind" },
-	CmpItemKindFolder = { link = "CmpItemKind" },
-	CmpItemKindEnumMember = { link = "CmpItemKind" },
-	CmpItemKindConstant = { link = "CmpItemKind" },
-	CmpItemKindStruct = { link = "CmpItemKind" },
-	CmpItemKindEvent = { link = "CmpItemKind" },
-	CmpItemKindOperator = { link = "CmpItemKind" },
-	CmpItemKindTypeParameter = { link = "CmpItemKind" },
-
 	IndentGuidesOdd = { bg = "#181A1F" },
 	IndentGuidesEven = { bg = "#1E2127" },
 
@@ -548,6 +487,7 @@ M.highlights = {
 	-- NormalFloat                      = { bg = colors.background },
 	WinBar = { fg = colors.foreground, bg = colors.background },
 	WinBarNc = { fg = colors.foreground, bg = colors.background },
+	WinSeparator = { link = "VertSplit" },
 
 	-- Fugitive
 	diffAdded = { link = "DiffAdd" },
