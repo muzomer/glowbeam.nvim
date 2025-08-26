@@ -546,7 +546,7 @@ M.highlights = {
 	FloatBorder = { fg = colors.interface.border },
 	NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
 	-- NormalFloat                      = { bg = colors.background },
-	WinBar = { fg = colors.foreground, bg = colors.background, bold = true },
+	WinBar = { fg = colors.foreground, bg = colors.background },
 	WinBarNc = { fg = colors.foreground, bg = colors.background },
 
 	-- Fugitive
