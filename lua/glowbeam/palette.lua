@@ -548,6 +548,10 @@ M.highlights = {
 	-- NormalFloat                      = { bg = colors.background },
 	WinBar = { fg = colors.foreground, bg = colors.background, bold = true },
 	WinBarNc = { fg = colors.foreground, bg = colors.background },
+
+	-- Fugitive
+	diffAdded = { link = "DiffAdd" },
+	diffRemoved = { link = "DiffDelete" },
 }
 
 return M
